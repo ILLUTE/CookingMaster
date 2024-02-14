@@ -9,6 +9,8 @@ public class CustomerHandler : MonoBehaviour
     public float CustomerRefillTime = 5.0f;
 
     private float lastCheckTime;
+
+    private Dictionary<CustomerController, SpawnPoint> m_CustomerSpawnPoints = new();
     private void Update()
     {
         CreateCustomer();
@@ -28,10 +30,19 @@ public class CustomerHandler : MonoBehaviour
             {
                 Debug.LogError("Customer is being setup with No Dish");
             }
-            playerPoint.SetCustomer(customer);
+            playerPoint.SetCustomer(customer, randomDish);
             customer.SetCustomer(playerPoint.transform, randomDish);
+            m_CustomerSpawnPoints.Add(customer, playerPoint);
             m_CurrentCustomer.Add(customer);
         }
+    }
+
+    public void RemoveACustomer(CustomerController customer)
+    {
+        m_CurrentCustomer.Remove(customer);
+        m_CustomerSpawnPoints[customer].RemoveCustomer();
+        m_CustomerSpawnPoints.Remove(customer);
+        Destroy(customer.gameObject);
     }
 
     private bool IsPlaceAvailableAtRestaurant(out SpawnPoint point)
@@ -57,17 +68,17 @@ public class CustomerHandler : MonoBehaviour
             return null;
         }
         int x = UnityEngine.Random.Range(0, AllDishes.Count);
-        
+
         return AllDishes[x];
     }
 
     private void UpdateExistingCustomers()
     {
-        foreach(CustomerController controller in m_CurrentCustomer)
+        for (int i = 0; i < m_CurrentCustomer.Count; i++)
         {
-            if (controller == null) continue;
+            if (m_CurrentCustomer[i] == null) continue;
 
-            controller.UpdateTime();
+            m_CurrentCustomer[i].UpdateTime();
         }
     }
 }

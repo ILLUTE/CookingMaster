@@ -10,15 +10,19 @@ public class CustomerController : MonoBehaviour
     [SerializeField] private Image m_FillImage;
     private float startTime;
 
+
+    private bool IsLookingToOrder = false;
     public void SetCustomer(Transform spawn, Dish info)
     {
         startTime = Time.time;
         transform.SetPositionAndRotation(spawn.position, spawn.rotation);
         m_CurrentDishOrder = info;
+        IsLookingToOrder = true;
     }
 
     public void UpdateTime()
     {
+        if (!IsLookingToOrder) return;
         m_FillImage.fillAmount = 1 - (Time.time - startTime) / GetMaxDishTime();
         if (Time.time - startTime < GetMaxDishTime())
         {
@@ -26,9 +30,14 @@ public class CustomerController : MonoBehaviour
         }
         else
         {
-            Debug.LogError("I am Out");
-            // Leave
+            Leave();
         }
+    }
+
+    private void Leave()
+    {
+        IsLookingToOrder = false;
+        Locator.Instance.CustomerHandlerInstance.RemoveACustomer(this);
     }
 
     public float GetMaxDishTime()
