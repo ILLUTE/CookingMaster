@@ -16,7 +16,12 @@ public class ScoreManager : MonoBehaviour
 
     private void OnGameOver()
     {
-        MatchOutcome matchOutcome = MatchOutcome.Tied;
+        Leaderboard lb = FileWriter.GetFile();
+        lb ??= new();
+        lb.AddScore(Scores[0]);
+        lb.AddScore(Scores[1]);
+
+        MatchOutcome matchOutcome;
         if (Scores[0] == Scores[1])
         {
             matchOutcome = MatchOutcome.Tied;
@@ -29,7 +34,7 @@ public class ScoreManager : MonoBehaviour
         {
             matchOutcome = MatchOutcome.Player2;
         }
-
+        FileWriter.SaveFile(lb);
         OnOutcome?.Invoke(matchOutcome);
     }
 
