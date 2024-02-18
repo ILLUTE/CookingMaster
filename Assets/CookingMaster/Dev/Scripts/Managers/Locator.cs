@@ -15,7 +15,7 @@ public class Locator : MonoBehaviour
 
                 if (instance == null)
                 {
-                    GameObject go = new();
+                    GameObject go = new("Locator");
                     instance = go.AddComponent<Locator>();
                 }
             }
@@ -49,6 +49,40 @@ public class Locator : MonoBehaviour
             }
 
             return _resourceManager;
+        }
+    }
+
+    private ScoreManager _scoreManager;
+    public ScoreManager ScoreManagerInstance
+    {
+        get
+        {
+            if (_scoreManager == null)
+            {
+                _scoreManager = FindObjectOfType<ScoreManager>();
+
+                if (_scoreManager == null)
+                {
+                    GameObject go = new("ScoreManager");
+                    _scoreManager = go.AddComponent<ScoreManager>();
+                }
+            }
+
+            return _scoreManager;
+        }
+    }
+
+    private GameManager _gameManager;
+    public GameManager GameManagerInstance
+    {
+        get
+        {
+            if (_gameManager == null)
+            {
+                _gameManager = FindObjectOfType<GameManager>();
+            }
+
+            return _gameManager;
         }
     }
 }

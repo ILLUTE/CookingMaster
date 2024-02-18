@@ -16,6 +16,6 @@ public class Player1Input : IInputInterface
 
     public bool GetInteractButton()
     {
-        return Input.GetKey(KeyCode.Space);
+        return Input.GetKeyDown(KeyCode.Q);
     }
 }

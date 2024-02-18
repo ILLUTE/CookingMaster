@@ -48,7 +48,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -115,6 +115,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GizmoSize: 0.3
   menuCardUI: {fileID: 7191931878807928126}
+  m_CurrentCustomer: {fileID: 0}
 --- !u!1001 &3891816590618223379
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -301,7 +302,7 @@ PrefabInstance:
     - target: {fileID: 6623423172414008819, guid: 01fa996cb8b3948ee9fd9108caaae253,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.9
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6623423172414008819, guid: 01fa996cb8b3948ee9fd9108caaae253,
         type: 3}
@@ -316,12 +317,12 @@ PrefabInstance:
     - target: {fileID: 6623423172414008819, guid: 01fa996cb8b3948ee9fd9108caaae253,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.8660254
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 6623423172414008819, guid: 01fa996cb8b3948ee9fd9108caaae253,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.5
+      value: -0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 6623423172414008819, guid: 01fa996cb8b3948ee9fd9108caaae253,
         type: 3}
@@ -331,12 +332,12 @@ PrefabInstance:
     - target: {fileID: 6623423172414008819, guid: 01fa996cb8b3948ee9fd9108caaae253,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.75
+      value: 0.51
       objectReference: {fileID: 0}
     - target: {fileID: 6623423172414008819, guid: 01fa996cb8b3948ee9fd9108caaae253,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 60
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 6623423172414008819, guid: 01fa996cb8b3948ee9fd9108caaae253,
         type: 3}

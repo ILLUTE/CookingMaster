@@ -6,7 +6,7 @@ public class SpawnPoint : MonoBehaviour
 {
     [SerializeField] private float GizmoSize = 0.3f;
     [SerializeField] private MenuCardUI menuCardUI;
-    private CustomerController m_CurrentCustomer;
+    [SerializeField] private CustomerController m_CurrentCustomer;
 
 
     private void OnDrawGizmos()

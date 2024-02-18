@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8597726542878282049}
   - component: {fileID: 9061515672375236262}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CH_Pimp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -116,7 +116,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3020233598333409496}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Chest_jnt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -151,7 +151,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2503493275317243012}
   - component: {fileID: 7865576412249725939}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CH_Punk
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -258,7 +258,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2677629513681355134}
   - component: {fileID: 1723114775520695065}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CH_Policeman
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -365,7 +365,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8145804127195453103}
   - component: {fileID: 6649588458637684886}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CH_StreetMan
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -471,7 +471,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8443947903808013276}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Head_jnt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -503,7 +503,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1548936255480230932}
   - component: {fileID: 659651892191121972}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SimplePeople_Waitress_White
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -570,7 +570,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3521519417102472908}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Toe_Left_jnt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -601,7 +601,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5056681822634684844}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: UpperLeg_Right_jnt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -634,7 +634,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9109889000248723066}
   - component: {fileID: 3607016116783608016}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CH_RiotCop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -741,7 +741,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2765985040643763666}
   - component: {fileID: 2547930301952620201}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CH_Hobo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -849,7 +849,9 @@ GameObject:
   - component: {fileID: 6122010815177808491}
   - component: {fileID: 7698155710782645612}
   - component: {fileID: 7805900483245226050}
-  m_Layer: 0
+  - component: {fileID: 713424960735843526}
+  - component: {fileID: 982927199772953728}
+  m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -870,6 +872,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1548936255480230932}
+  - {fileID: 3990963177869670967}
+  - {fileID: 8265994828551451618}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7698155710782645612
@@ -887,6 +891,9 @@ MonoBehaviour:
   m_CharacterController: {fileID: 7805900483245226050}
   m_MoveSpeed: 2
   m_Animator: {fileID: 659651892191121972}
+  Id: 0
+  playerInventory: {fileID: 982927199772953728}
+  IsChopping: 0
 --- !u!143 &7805900483245226050
 CharacterController:
   m_ObjectHideFlags: 0
@@ -908,11 +915,43 @@ CharacterController:
   serializedVersion: 3
   m_Height: 1.4
   m_Radius: 0.2
-  m_SlopeLimit: 45
+  m_SlopeLimit: 5
   m_StepOffset: 0.3
-  m_SkinWidth: 0.08
+  m_SkinWidth: 0.0001
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0.7, z: 0}
+--- !u!114 &713424960735843526
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2551434246849984125}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26c4c6bcf2e9a42b6800b2a2228da8d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_GroundCheck: {fileID: 3990963177869670967}
+  m_GroundCheckRadius: 0.05
+  m_NonGround:
+    serializedVersion: 2
+    m_Bits: 64
+--- !u!114 &982927199772953728
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2551434246849984125}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d3560081ecd546f2a4fb384d824c9e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PickedUpIngredients: []
+  createdDish:
+    choppedIngredients: []
 --- !u!1 &2678425368229363581
 GameObject:
   m_ObjectHideFlags: 0
@@ -922,7 +961,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4248151347569195268}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Foot_Right_jnt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -955,7 +994,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9103356574431355354}
   - component: {fileID: 3667186906485693657}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CH_Prostitute
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1061,7 +1100,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5370737528541787325}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Shoulder_Left_jnt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1094,7 +1133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 882086878713757492}
   - component: {fileID: 8235272606776944665}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CH_Robber
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1191,6 +1230,108 @@ SkinnedMeshRenderer:
     m_Center: {x: -0.36837792, y: 0.0000017285347, z: 0.0016335845}
     m_Extent: {x: 1.4135954, y: 1.6845057, z: 0.35555044}
   m_DirtyAABB: 0
+--- !u!1 &3561518022401760927
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8265994828551451618}
+  - component: {fileID: 458345590196970704}
+  - component: {fileID: 1138014220248347295}
+  - component: {fileID: 536239879213025102}
+  m_Layer: 5
+  m_Name: Canvas
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &8265994828551451618
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3561518022401760927}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.001, y: 0.001, z: 0.001}
+  m_ConstrainProportionsScale: 1
+  m_Children:
+  - {fileID: 8551516804993360085}
+  m_Father: {fileID: 6122010815177808491}
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0.01}
+  m_SizeDelta: {x: 2000, y: 2000}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!223 &458345590196970704
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3561518022401760927}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 2
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 0
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_VertexColorAlwaysGammaSpace: 1
+  m_AdditionalShaderChannelsFlag: 0
+  m_UpdateRectTransformForStandalone: 0
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_TargetDisplay: 0
+--- !u!114 &1138014220248347295
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3561518022401760927}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_UiScaleMode: 0
+  m_ReferencePixelsPerUnit: 100
+  m_ScaleFactor: 1
+  m_ReferenceResolution: {x: 800, y: 600}
+  m_ScreenMatchMode: 0
+  m_MatchWidthOrHeight: 0
+  m_PhysicalUnit: 3
+  m_FallbackScreenDPI: 96
+  m_DefaultSpriteDPI: 96
+  m_DynamicPixelsPerUnit: 1
+  m_PresetInfoIsWorld: 1
+--- !u!114 &536239879213025102
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3561518022401760927}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreReversedGraphics: 1
+  m_BlockingObjects: 0
+  m_BlockingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
 --- !u!1 &3875890421233093175
 GameObject:
   m_ObjectHideFlags: 0
@@ -1200,7 +1341,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1716564484138835745}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: UpperLeg_Left_jnt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1233,7 +1374,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8459754151005062040}
   - component: {fileID: 4408754480861506760}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CH_Roadworker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1339,7 +1480,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2471326021260837700}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Arm_Left_jnt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1371,7 +1512,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2277241160345218379}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: LowerLeg_Right_jnt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1404,7 +1545,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6804724253185160108}
   - component: {fileID: 1145269418850243505}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CH_BusinessMan
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1510,7 +1651,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5818296580791024506}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Spine_jnt 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1542,7 +1683,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5382027195166443182}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Neck_jnt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1574,7 +1715,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5205253450777728222}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: LowerLeg_Left_jnt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1607,7 +1748,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8364128710552339716}
   - component: {fileID: 4562038837468109261}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CH_Sheriff
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1713,7 +1854,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2323277239463660394}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Arm_Right_jnt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1746,7 +1887,7 @@ GameObject:
   m_Component:
   - component: {fileID: 916230360198116052}
   - component: {fileID: 5176467660145867082}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CH_FireFighter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1852,7 +1993,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8946969364770894596}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Foot_Left_jnt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1884,7 +2025,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1688912103319465002}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Hand_Right_jnt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1916,7 +2057,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1634719922391540259}
   - component: {fileID: 3554787920386581749}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CH_Woman
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2022,7 +2163,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8332583540664848472}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Hips_jnt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2056,7 +2197,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8884911191487757823}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Shoulder_Right_jnt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2079,6 +2220,81 @@ Transform:
   - {fileID: 2323277239463660394}
   m_Father: {fileID: 3020233598333409496}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &7869958731449571575
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8551516804993360085}
+  - component: {fileID: 4332657496115108058}
+  - component: {fileID: 1429051307311458096}
+  m_Layer: 5
+  m_Name: Image
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &8551516804993360085
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7869958731449571575}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8265994828551451618}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &4332657496115108058
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7869958731449571575}
+  m_CullTransparentMesh: 1
+--- !u!114 &1429051307311458096
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7869958731449571575}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!1 &7908332644796790990
 GameObject:
   m_ObjectHideFlags: 0
@@ -2088,7 +2304,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6631642166132174638}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Hand_Left_jnt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2119,7 +2335,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2703259990705215566}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Toe_Right_jnt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2150,7 +2366,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1649457413835839996}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Forearm_Left_jnt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2173,6 +2389,37 @@ Transform:
   - {fileID: 6631642166132174638}
   m_Father: {fileID: 2471326021260837700}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &8446284541554290687
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3990963177869670967}
+  m_Layer: 6
+  m_Name: GroundCheck
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3990963177869670967
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8446284541554290687}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.03, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6122010815177808491}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8586227545040586769
 GameObject:
   m_ObjectHideFlags: 0
@@ -2183,7 +2430,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4804959712343018469}
   - component: {fileID: 4223093974989596634}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CH_Trucker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2289,7 +2536,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4118061642861561554}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Spine_jnt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2321,7 +2568,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5815960965342089416}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Forearm_Right_jnt
   m_TagString: Untagged
   m_Icon: {fileID: 0}

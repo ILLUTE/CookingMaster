@@ -8,7 +8,6 @@ public class OrderReadyTrigger : MonoBehaviour
 
     public CustomerController GetCustomer()
     {
-        if (spawnPoint == null) return null;
         return spawnPoint.GetCurrentCustomer();
     }
 

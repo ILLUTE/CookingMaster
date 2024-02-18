@@ -24,11 +24,8 @@ public class CustomerController : MonoBehaviour
     {
         if (!IsLookingToOrder) return;
         m_FillImage.fillAmount = 1 - (Time.time - startTime) / GetMaxDishTime();
-        if (Time.time - startTime < GetMaxDishTime())
-        {
-            // Wait...
-        }
-        else
+
+        if (Time.time - startTime > GetMaxDishTime())
         {
             Leave();
         }
@@ -42,19 +39,14 @@ public class CustomerController : MonoBehaviour
 
     public float GetMaxDishTime()
     {
-        return m_CurrentDishOrder.m_Ingredients.Count * 2;
+        return m_CurrentDishOrder.m_Ingredients.Count * 20;
     }
 
-    public void ServeDish(CreatedDishInfo dishInfo)
+    public void ServeDish(CreatedDishInfo dishInfo, PlayerController playerController)
     {
-        if(IsDishCorrect(dishInfo))
-        {
-            // good
-        }
-        else
-        {
-            // Blehhhh
-        }
+        Debug.Log("Dish was Served");
+        Locator.Instance.ScoreManagerInstance.UpdateScore(playerController, IsDishCorrect(dishInfo) ? GlobalConstants.CorrectDish : GlobalConstants.InCorrectDish);
+        Leave();
     }
 
     private bool IsDishCorrect(CreatedDishInfo dishMade)
