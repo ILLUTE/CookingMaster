@@ -5,13 +5,14 @@ using UnityEngine.UI;
 
 public class CustomerController : MonoBehaviour
 {
-    public Dish m_CurrentDishOrder;
+    public Dish m_CurrentDishOrder; // current Dish Order
 
     [SerializeField] private Image m_FillImage;
     private float startTime;
 
 
     private bool IsLookingToOrder = false;
+
     public void SetCustomer(Transform spawn, Dish info)
     {
         startTime = Time.time;
@@ -37,15 +38,19 @@ public class CustomerController : MonoBehaviour
         Locator.Instance.CustomerHandlerInstance.RemoveACustomer(this);
     }
 
-    public float GetMaxDishTime()
+    public float GetMaxDishTime() // Get Time For A Customer.
     {
-        return m_CurrentDishOrder.m_Ingredients.Count * 20;
+        return m_CurrentDishOrder.m_Ingredients.Count * GlobalConstants.CustomerWaitPerIngredient;
     }
 
-    public void ServeDish(CreatedDishInfo dishInfo, PlayerController playerController)
+    public void ServeDish(CreatedDishInfo dishInfo, PlayerController playerController)// Serve A Dish
     {
         Debug.Log("Dish was Served");
         Locator.Instance.ScoreManagerInstance.UpdateScore(playerController, IsDishCorrect(dishInfo) ? GlobalConstants.CorrectDish : GlobalConstants.InCorrectDish);
+        float timeTaken = Time.time - startTime;
+        float ratio = timeTaken / GetMaxDishTime();
+
+        // ratio -> 70%? Provide Powerup
         Leave();
     }
 
